@@ -1,10 +1,5 @@
 pipeline {
-  agent {
-    docker {
-      image 'maven:3-jdk-12-alpine'
-    }
-
-  }
+  agent any
   stages {
     stage('Build') {
       steps {
