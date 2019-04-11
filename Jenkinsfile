@@ -8,7 +8,7 @@ pipeline {
   stages {
     stage('Build') {
       steps {
-        sh 'mvn test'
+        sh 'docker build . -t mojkontener:latest'
       }
     }
   }
