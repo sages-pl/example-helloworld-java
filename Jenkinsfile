@@ -4,7 +4,7 @@ pipeline {
     stage('Test') {
       agent {
         docker {
-          image 'maven:3-jdk8-alpine'
+          image 'maven:3-jdk-8-alpine'
         }
 
       }
