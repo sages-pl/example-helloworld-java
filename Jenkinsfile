@@ -1,7 +1,7 @@
 pipeline {
   agent {
     docker {
-      image '3-jdk-12-alpine'
+      image 'maven:3-jdk-12-alpine'
     }
 
   }
