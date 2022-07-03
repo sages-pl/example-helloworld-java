@@ -1,0 +1,51 @@
+pipeline {
+  agent any
+  stages {
+    stage('Env') {
+      steps {
+        sh 'env |sort'
+        sh 'echo $JAVA_HOME'
+      }
+    }
+
+    stage('Build') {
+      steps {
+        sh 'mvn compile'
+      }
+    }
+
+    stage('Test Unit') {
+      steps {
+        sh 'mvn test'
+      }
+    }
+
+    stage('Test Integration') {
+      steps {
+        sh 'mvn verify'
+      }
+    }
+
+    stage('Test Mutation') {
+      steps {
+        sh 'mvn org.pitest:pitest-maven:mutationCoverage'
+      }
+    }
+
+    stage('Test Report') {
+      steps {
+        sh 'docker run --rm --network ecosystem -v $(pwd):/usr/src sonarsource/sonar-scanner-cli'
+      }
+    }
+
+    stage('Artifact') {
+      steps {
+        sh 'echo "building image, publishing, cleaning"'
+      }
+    }
+
+  }
+  environment {
+    JAVA_HOME = '/usr/lib/jvm/java-8-openjdk'
+  }
+}
