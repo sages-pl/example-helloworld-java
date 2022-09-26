@@ -1,6 +1,6 @@
 # A Java/Maven/JUnit HelloWorld example
 
-A „Hello World!” sample written in Java using Maven for the build, that showcases a few very simple tests.
+A "Hello World!" sample written in Java using Maven for the build, that showcases a few very simple tests.
 
 This example demonstrates:
 
@@ -23,6 +23,6 @@ This example follows the following basic conventions:
 
 | | unit test | integration test |
 | --- | --- | --- |
-| **resides in:** | `src/test/java/*Test.java` | `src/test/java/*IT.java` |
+| **resides in:** | ``src/test/java/*Test.java`` | ``src/test/java/*IT.java`` |
 | **executes in Maven phase:** | test | verify |
-| **handled by Maven plugin:** | [surefire](http://maven.apache.org/surefire/maven-surefire-plugin/) | [failsafe](http://maven.apache.org/surefire/maven-failsafe-plugin/) |
+| **handled by Maven plugin:** | `surefire <http://maven.apache.org/surefire/maven-surefire-plugin/>`_ | `failsafe <http://maven.apache.org/surefire/maven-failsafe-plugin/>`_ |
